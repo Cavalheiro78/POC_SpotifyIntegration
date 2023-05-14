@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POC_SpotifyIntegration", "POC_SpotifyIntegration\POC_SpotifyIntegration.csproj", "{71D8DFD5-CBA3-4231-BF17-A6A47D764123}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POC_SpotifyIntegrationShared", "POC_SpotifyIntegrationShared\POC_SpotifyIntegrationShared.csproj", "{D05B84C0-4E64-401F-ACDB-09BF5269542A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71D8DFD5-CBA3-4231-BF17-A6A47D764123}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71D8DFD5-CBA3-4231-BF17-A6A47D764123}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71D8DFD5-CBA3-4231-BF17-A6A47D764123}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71D8DFD5-CBA3-4231-BF17-A6A47D764123}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D05B84C0-4E64-401F-ACDB-09BF5269542A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D05B84C0-4E64-401F-ACDB-09BF5269542A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D05B84C0-4E64-401F-ACDB-09BF5269542A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D05B84C0-4E64-401F-ACDB-09BF5269542A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E2A01D64-8D66-46CB-B16C-E8ACFC685AF0}
+	EndGlobalSection
+EndGlobal

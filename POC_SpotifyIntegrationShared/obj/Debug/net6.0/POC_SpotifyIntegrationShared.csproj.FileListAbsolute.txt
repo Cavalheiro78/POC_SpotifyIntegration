@@ -1,0 +1,12 @@
+C:\Users\Pedro\source\repos\POC_SpotifyIntegration\POC_SpotifyIntegrationShared\bin\Debug\net6.0\POC_SpotifyIntegrationShared.deps.json
+C:\Users\Pedro\source\repos\POC_SpotifyIntegration\POC_SpotifyIntegrationShared\bin\Debug\net6.0\POC_SpotifyIntegrationShared.dll
+C:\Users\Pedro\source\repos\POC_SpotifyIntegration\POC_SpotifyIntegrationShared\bin\Debug\net6.0\POC_SpotifyIntegrationShared.pdb
+C:\Users\Pedro\source\repos\POC_SpotifyIntegration\POC_SpotifyIntegrationShared\obj\Debug\net6.0\POC_SpotifyIntegrationShared.csproj.AssemblyReference.cache
+C:\Users\Pedro\source\repos\POC_SpotifyIntegration\POC_SpotifyIntegrationShared\obj\Debug\net6.0\POC_SpotifyIntegrationShared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Pedro\source\repos\POC_SpotifyIntegration\POC_SpotifyIntegrationShared\obj\Debug\net6.0\POC_SpotifyIntegrationShared.AssemblyInfoInputs.cache
+C:\Users\Pedro\source\repos\POC_SpotifyIntegration\POC_SpotifyIntegrationShared\obj\Debug\net6.0\POC_SpotifyIntegrationShared.AssemblyInfo.cs
+C:\Users\Pedro\source\repos\POC_SpotifyIntegration\POC_SpotifyIntegrationShared\obj\Debug\net6.0\POC_SpotifyIntegrationShared.csproj.CoreCompileInputs.cache
+C:\Users\Pedro\source\repos\POC_SpotifyIntegration\POC_SpotifyIntegrationShared\obj\Debug\net6.0\POC_SpotifyIntegrationShared.dll
+C:\Users\Pedro\source\repos\POC_SpotifyIntegration\POC_SpotifyIntegrationShared\obj\Debug\net6.0\refint\POC_SpotifyIntegrationShared.dll
+C:\Users\Pedro\source\repos\POC_SpotifyIntegration\POC_SpotifyIntegrationShared\obj\Debug\net6.0\POC_SpotifyIntegrationShared.pdb
+C:\Users\Pedro\source\repos\POC_SpotifyIntegration\POC_SpotifyIntegrationShared\obj\Debug\net6.0\ref\POC_SpotifyIntegrationShared.dll

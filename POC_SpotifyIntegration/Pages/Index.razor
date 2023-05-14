@@ -1,0 +1,66 @@
+﻿@page "/"
+@using POC_SpotifyIntegrationShared;
+
+<PageTitle>Index</PageTitle>
+<h1>Requests using Client Credentials Flow</h1>
+<div class="">
+    <div class="form-floating mb-3" style="display: inline-block">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" @bind="UserId">
+        <label for="floatingInput">User id</label>
+    </div>
+    <button @onclick="() => GetPlaylists()" type="button" class="btn btn-dark" style="display: inline-block; justify-content: center;">
+        Search for playlists
+    </button>
+</div>
+
+@if (PlaylistPage != null)
+{
+    <p><b>Href: </b>@PlaylistPage.Href</p>
+    <p><b>Total playlists: </b>@PlaylistPage.Total</p>
+    <button @onclick="() => PreviousPlaylists()" type="button" class="btn btn-dark" style="display: inline-block; justify-content: center;">
+        Previous 20 Tracks
+    </button>
+    <button @onclick="() => NextPlaylists()" type="button" class="btn btn-dark" style="display: inline-block; justify-content: center;">
+        Next 20 Tracks
+    </button>
+    <h3>Simplified Playlists</h3>
+    <div>
+        @for (var i = 0; i < PlaylistPage.Items.Count(); i++)
+        {
+            <hr class="rounded">
+            <div class="row">
+                <div class="col-3">
+                    @if (PlaylistPage.Items[i].Images.Count() != 0)
+                    {
+                        <img src="@PlaylistPage.Items[i].Images[0].Url" height="80px" width="80px" />
+                    }
+                    else
+                    {
+                        <p>No Image</p>
+                    }
+                    <p><b>Playlist id:</b> @PlaylistPage.Items[i].Id</p>
+                    <p><b>Playlist name:</b> @PlaylistPage.Items[i].Name</p>
+                    <a href="@($"playlist/{PlaylistPage.Items[i].Id}")" class="btn btn-primary">Playlist Details</a>
+                </div>
+                <div class="col-9">
+                    <p><b>Playlist number @(i + 1)</b></p>
+                    <p><b>Collaborative: </b>@PlaylistPage.Items[i].Collaborative</p>
+                    <p><b>Playlist spotify url:</b> @PlaylistPage.Items[i].External_Urls.Spotify</p>
+                    <p><b>Playlist api url:</b> @PlaylistPage.Items[i].Href</p>
+                    <p><b>Playlist description:</b> @PlaylistPage.Items[i].Description</p>
+                    <p><b>Playlist primary color:</b> @PlaylistPage.Items[i].Primary_Color</p>
+                    <p><b>Number of Tracks:</b> @PlaylistPage.Items[i].Tracks.Total</p>
+                    <p><b>Api url of playlist tracks:</b> @PlaylistPage.Items[i].Tracks.Href</p>
+                    <p><b>Owner display name:</b> @PlaylistPage.Items[i].Owner.Display_Name</p>
+                    <p><b>Owner id:</b> @PlaylistPage.Items[i].Owner.Id</p>
+                    <p><b>Owner spotify url:</b> @PlaylistPage.Items[i].Owner.External_Urls.Spotify</p>
+                    <p><b>Owner api url:</b> @PlaylistPage.Items[i].Owner.Href</p>
+                    <p><b>Owner uri:</b> @PlaylistPage.Items[i].Owner.Uri</p>
+                </div>
+            </div>
+
+            
+        }
+    </div>
+    
+}

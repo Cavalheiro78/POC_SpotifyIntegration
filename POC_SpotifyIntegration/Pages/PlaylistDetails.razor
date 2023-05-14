@@ -1,0 +1,146 @@
+﻿@page "/playlist/{Id}"
+@using POC_SpotifyIntegrationShared;
+
+<PageTitle>Playlist Details</PageTitle>
+
+<div>
+    @if(Playlist != null)
+    {
+        <h3>@Playlist.Name</h3>
+        <div class="row">
+            <div class="col-4">
+                
+                @if (Playlist.Images.Count() != 0)
+                {
+                    <img src="@Playlist.Images[0].Url" height="80px" width="80px" />
+                }
+                else
+                {
+                    <p>No Image</p>
+                }
+                <p><b>Playlist id:</b> @Playlist.Id</p>
+                <p><b>Playlist uri:</b> @Playlist.Uri</p>
+                <p><b>Spotify url:</b> @Playlist.External_Urls?.Spotify</p>
+                <p><b>Api href:</b> @Playlist.Href</p>
+                <p><b>Snapshot id:</b> @Playlist.Snapshot_Id</p>
+            </div>
+            <div class="col-8">
+                <p><b>Playlist description:</b> @Playlist.Description</p>
+                <p><b>Followers href:</b> @Playlist.Followers.Href</p>
+                <p><b>Followers total:</b> @Playlist.Followers.Total</p>
+                <p><b>Owner id:</b> @Playlist.Owner.Id</p>
+                <p><b>Owner spotify url:</b> @Playlist.Owner.External_Urls.Spotify</p>
+                <p><b>Owner api url:</b> @Playlist.Owner.Href</p>
+                <p><b>Owner uri:</b> @Playlist.Owner.Uri</p>
+                <p><b>Primary color:</b> @Playlist.Primary_Color</p>
+                <p><b>Public:</b> @Playlist.Public</p>
+            </div>
+        </div>
+
+        @if(PlaylistTracks != null)
+        {
+            var countTracks = 1;
+            <h3>Playlist Tracks</h3>
+            <p><b>Tracks href:</b> @Playlist.Tracks.Href</p>
+            <p><b>Total tracks:</b> @Playlist.Tracks.Total</p>
+            <button @onclick="() => PreviousTracks()" type="button" class="btn btn-dark" style="display: inline-block; justify-content: center;">
+                Previous 100 Tracks
+            </button>
+            <button @onclick="() => NextTracks()" type="button" class="btn btn-dark" style="display: inline-block; justify-content: center;">
+                Next 100 Tracks
+            </button>
+            foreach (PlaylistTrack playlistTrack in PlaylistTracks.Items)
+            {
+                <hr class="rounded">
+                <div class="row">
+                    <div class="col-4">
+                        <p><b>Track number @(Offset+countTracks)</b></p>
+                        <p><b>Track name:</b> @playlistTrack.Track.Name</p>
+                        @if (playlistTrack.Track.Album != null)
+                        {
+                            @if (playlistTrack.Track.Album.Images != null)
+                            {
+                                if (playlistTrack.Track.Album.Images?.Count() != 0)
+                                {
+                                    <img src="@playlistTrack.Track.Album.Images.FirstOrDefault().Url" height="80px" width="80px" />
+                                }
+                                else
+                                {
+                                    <p>No Image</p>
+                                }
+                            }
+                            else
+                            {
+                                <p>No Image</p>
+                            }
+                        }
+                        else
+                        {
+                            <p>No Image</p>
+                        }
+                        <p><b>Track id:</b> @playlistTrack.Track.Id</p>
+                        <p><b>Track uri:</b> @playlistTrack.Track.Uri</p>
+                        <p><b>Spotify url:</b> @playlistTrack.Track.External_Urls?.Spotify</p>
+                        <p><b>Api href:</b> @playlistTrack.Track.Href</p>
+                    </div>
+                    <div class="col-8">
+                        @{
+                            var artistsNames = "";
+                            var availableMarkets = "";
+                            if (playlistTrack.Track.Artists != null)
+                            {
+                                if (playlistTrack.Track.Artists.Count() == 1)
+                                    artistsNames = playlistTrack.Track.Artists[0].Name;
+                                else
+                                    for (var i = 0; i < playlistTrack.Track.Artists.Count(); i++)
+                                        artistsNames += playlistTrack.Track.Artists.Count() == (i + 1) ? playlistTrack.Track.Artists[i].Name : playlistTrack.Track.Artists[i].Name + ", ";
+                            }
+                            else
+                            {
+                                artistsNames = "No artist associated";
+                            }
+
+
+                            /*if (track.Artists.Count() == (i + 1))
+                            artistsNames += track.Artists[i].Name;
+                            else
+                            artistsNames += track.Artists[i].Name + ", ";*/
+                            if (playlistTrack.Track.Available_Markets != null)
+                            {
+                                if (playlistTrack.Track.Available_Markets.Count() == 1)
+                                    availableMarkets = playlistTrack.Track.Available_Markets[0];
+                                else
+                                    for (var i = 0; i < playlistTrack.Track.Available_Markets.Count(); i++)
+                                        availableMarkets += playlistTrack.Track.Available_Markets.Count() == (i + 1) ? playlistTrack.Track.Available_Markets[i] : playlistTrack.Track.Available_Markets[i] + ", ";
+                            }
+                            else
+                            {
+                                availableMarkets = "No markets associated";
+                            }
+
+                        }
+                        <p><b>Artists involved:</b> @artistsNames</p>
+                        <p><b>Available markets:</b> @availableMarkets</p>
+                        <p><b>Duration ms:</b> @playlistTrack.Track.Duration_Ms</p>
+                        <p><b>Explicit:</b> @playlistTrack.Track.Duration_Ms</p>
+                        <p><b>Popularity:</b> @playlistTrack.Track.Popularity</p>
+                        @if (playlistTrack.Track.Album != null)
+                        {
+                            <p><b>Album name:</b> @playlistTrack.Track.Album.Name</p>
+                            <p><b>Album id:</b> @playlistTrack.Track.Album.Id</p>
+                            <p><b>Album spotify url:</b> @playlistTrack.Track.Album.External_Urls.Spotify</p>
+                            <p><b>Album uri:</b> @playlistTrack.Track.Album.Uri</p>
+                        }
+                        else
+                        {
+                            <p>No album associated</p>
+                        }
+
+                    </div>
+                </div>
+                countTracks++;
+            }
+        }
+        
+    }
+</div>
